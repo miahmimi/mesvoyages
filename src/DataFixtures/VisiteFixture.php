@@ -26,7 +26,7 @@ class VisiteFixture extends Fixture
                     ->setAvis($faker->sentence(4,true));
                     
             //enregistrement de l'objet
-            $manager->persist($visites);
+            $manager->persist($visite);
             
         }
         
