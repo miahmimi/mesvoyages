@@ -8,10 +8,33 @@
                     Ville
                     <a href="{{ path('voyages.sort', {champ:'ville', ordre:'ASC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true"><</a>
                     <a href="{{ path('voyages.sort', {champ:'ville', ordre:'DESC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">></a>
-                   </th>
-                <th class="text-left align-top" scope="col">Pays </th>
-                <th class="text-end align-top" scope="col"> Note</th>
-                <th class="text-center align-top" scope="col"> Date   </th>
+                   <form class="form-inline mt-1" method="POST" action="{{ path('voyages.findallequal', {champ:'ville'}) }}">
+                        <div class="form-group mr-1 mb-2">
+                            <input type="text" class="sm" name="recherche">                            
+                            <button type="submit" class="btn btn-primary mb-2 btn-sm">filtrer</button>
+                        </div>
+                    </form>
+                </th>
+                <th class="text-left align-top" scope="col">
+                    Pays 
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'ASC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true"><</a>
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'DESC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">></a>
+                <form class="form-inline mt-1" method="POST" action="{{ path('voyages.findallequal', {champ:'ville'}) }}">
+                        <div class="form-group mr-1 mb-2">
+                            <input type="text" class="sm" name="recherche">                            
+                            <button type="submit" class="btn btn-primary mb-2 btn-sm">filtrer</button>
+                        </div>
+                    </form></th>
+                <th class="text-end align-top" scope="col"> 
+                    Note
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'ASC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true"><</a>
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'DESC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">></a>
+                  </th>
+                <th class="text-center align-top" scope="col"> 
+                    Date  
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'ASC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true"><</a>
+                    <a href="{{ path('voyages.sort', {champ:'ville', ordre:'DESC'}) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">></a>
+                  </th>
             </tr>
         </thead>   
         <tbody>
