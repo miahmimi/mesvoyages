@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Form;  
+namespace App\Form;
 
 use App\Entity\Environnement;
 use App\Entity\Visite;
@@ -37,6 +37,13 @@ class VisiteType extends AbstractType
             ->add('tempmax',null,[
                 'label'=>'t°max'
             ])
+                ->add('environnements',EntityType::class,[
+                    'class'=> Environnement::class,
+                    'choice_label'=>'nom',
+                    'multiple'=>true,
+                    'required'=>false
+                    
+                ])
             ->add ('submitr',SubmitType::class ,[
                     'label'=>'Enregistrer'
                 ])
