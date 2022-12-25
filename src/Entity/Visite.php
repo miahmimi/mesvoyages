@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\VisiteRepository;
+use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +55,16 @@ class Visite
      */
     private $tempmax;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Environnement::class)
+     */
+    private $environnements;
+
+    public function __construct()
+    {
+        $this->environnements = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -81,12 +94,12 @@ class Visite
         return $this;
     }
 
-    public function getDatecreation(): ?\DateTimeInterface
+    public function getDatecreation(): ?DateTimeInterface
     {
         return $this->datecreation;
     }
 
-    public function setDatecreation(?\DateTimeInterface $datecreation): self
+    public function setDatecreation(?DateTimeInterface $datecreation): self
     {
         $this->datecreation = $datecreation;
 
@@ -149,5 +162,29 @@ class Visite
         }else {
             return $this ->datecreation->format('d/m/Y');
         }
+    }
+
+    /**
+     * @return Collection<int, Environnement>
+     */
+    public function getEnvironnements(): Collection
+    {
+        return $this->environnements;
+    }
+
+    public function addEnvironnement(Environnement $environnement): self
+    {
+        if (!$this->environnements->contains($environnement)) {
+            $this->environnements[] = $environnement;
+        }
+
+        return $this;
+    }
+
+    public function removeEnvironnement(Environnement $environnement): self
+    {
+        $this->environnements->removeElement($environnement);
+
+        return $this;
     }
 }
