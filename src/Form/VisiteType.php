@@ -44,6 +44,10 @@ class VisiteType extends AbstractType
                     'required'=>false
                     
                 ])
+            ->add('imageFile', FileType::class,[
+                'required'=>false,
+                'label'=>'selection image'
+            ])
             ->add ('submitr',SubmitType::class ,[
                     'label'=>'Enregistrer'
                 ])
